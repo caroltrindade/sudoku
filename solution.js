@@ -33,7 +33,7 @@ function isValidBoard(board) {
 
 // Checks if the board's rows are valid
 function hasValidRows(board) {
-  return validateArrayValues(array);
+  return validateArrayValues(board);
 }
 
 // Checks if the board's columns are valid
@@ -47,7 +47,9 @@ function hasValidColumns(board) {
 // Checks if the board's sub-boxes are valid
 function hasValidSubboxes(board) {
   const chunkedBoard = chunkBoard(board, 3);
+  console.log('chunkedBoard', chunkedBoard);
   const transposedBoard = transposeArray(chunkedBoard); 
+  console.log('transposedBoard', transposedBoard);
 
   const boardWithoutSubarrays = transposedBoard.map(row => row.flat());
   let boardSeparatedIntoSubboxes = chunkBoard(boardWithoutSubarrays, 9);
